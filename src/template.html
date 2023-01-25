@@ -1,15 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind Template</title>
 </head>
-<body class="flex flex-col">
-    <h1 class="text-4xl text-blue-700">My Webpack + Tailwind App</h1>
-    <p class="text-red-700">First image is defined in the template, the second is defined in index.js</p>
-    <div class="image flex justify-center gap-10 flex-row">
+
+<body class="bg-slate-100 grid">
+    <!-- NAV -->
+    <nav>
+        <div class="nav-flex">
+            <img class="w-20 h-auto" src="<%=require('./assets/images/weather-icon.svg')%>">
+            <h1 class="text-5xl text-sky-700">Weather</h1>
+        </div>
+
+        <div id="breakpointNav" class="flex items-center justify-between gap-[100px]">
+            <div class="searchContainer nav-flex">
+                <div>
+                    <input
+                        class="text-xl shadow appearance-none border rounded-2xl py-2 px-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="searchField" type="text" placeholder="Search City">
+                </div>
+                <a href="#" id="search"><img class="w-[60px] h-auto" src="<%=require('./assets/images/magnify.svg')%>"></a>
+            </div>
+            <div class="hamburgerContainer">
+                <a href="#" id="nav-toggle"
+                    class="flex flex-col justify-between items-center min-w-min h-[37px] mr-[20px]">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </a>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- SIDE -->
+    <div class="sidebar bg-cyan-500 p-10 flex flex-col gap-20">
+        <span class="text-2xl text-white">This was skipped. I have spent a long time on this and want to move on</span>
+        <ul>
+            <li>sidebar option 1</li>
+            <li>sidebar option 2</li>
+        </ul>
     </div>
+
+    <!-- MAIN -->
+    <div class="main h-screen flex flex-col">
+        <!-- Error Banner  -->
+        <div class="error-banner p-10">
+            <span class="error"></span>
+        </div>
+
+        <!-- Main Container -->
+        <div class="content px-14 py-10 flex flex-col items-center justify-start gap-6 h-full">
+
+            <div class="weather w-[90%] h-[min-content]">
+                <div class="desc w-[100%] p-2">
+                    <h2 id="description" class="text-4xl text-white">No city has been selected, please search for city</h2>
+                </div>
+                <!-- h-[500px] w-[100%] flex bg-black/50 -->
+                <div class="info">
+                    <div class="left">
+                        <div class="top">
+                            <div class="temp">
+                                <img id="tempSVG" class="svg" src="" alt="">
+                                <span id="temp" class="text-8xl font-bold text-white"></span>
+                            </div>
+                            <div class="icon">
+                                <img id="weather-icon" src="" alt="" srcset="">
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <ul id="bottom-list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <img id="gif" src="" alt="">
+                    </div>
+                </div>
+
+                <div class="bottom-desc w-[100%] p-2">
+                    <h2 id="weather-desc" class="text-4xl text-white text-center"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer bg-cyan-500 nav-flex justify-center items-center">
+        <a id="foot-desc" href="https://github.com/kalivm90/Weather"><p class="font-bold text-2xl text-white">Kalivm90&copy;2023</p></a>
+    </div>
+
 </body>
+
 </html>
+
+<!-- 
+                LEFT CONTAINER OF CARD
+                <div class="left flex flex-col gap-5 mt-4">
+                        
+                    <div id="tempTitleContainer" class="flex justify-center items-center">
+                        <h1 id="tempTitle" class="text-4xl text-white font-bold"></h1>
+                    </div>
+                    <div id="tempContainer" class="flex items-center justify-center gap-10">
+                        <img id="tempSVG" class="svg" src="" alt="">
+                        <span id="temp" class="text-6xl font-bold text-white py-4"></span>
+                    </div>
+
+                    <div id="feelsLikeContainer" class="flex justify-center items-center">
+                        <h1 id="feelsLike" class="text-4xl text-white font-bold"></h1>
+                    </div>
+                    <div id="feelsDetail" class="flex items-center justify-center gap-10">
+                        <img id="feelsSVG" class="svg" src="" alt="">
+                        <span id="feels" class="text-6xl font-bold text-white py-4"></span>
+                    </div>
+
+                </div>
+
+ -->
+
+
+ <!-- 
+                            <div class="left">
+                                <div class="top">
+                                    <div class="item">
+                                        <h1 id="tempTitle" class="card-title"></h1>
+                                        <div id="tempContainer" class="card-desc">
+                                            <img id="tempSVG" class="svg" src="" alt="">
+                                            <span id="temp" class="text-6xl font-bold text-white py-4"></span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="item">
+                                        <h1 id="feelsLike" class="card-title"></h1>
+                                        <div id="feelsDetail" class="card-desc">
+                                            <img id="feelsSVG" class="svg" src="" alt="">
+                                            <span id="feels" class="text-6xl font-bold text-white py-4"></span>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="bottom w-[100%] h-[50%] bg-slate-100">
+        
+                                </div>
+                            </div>
+        
+                            <div class="right">
+        
+                            </div>
+
+  -->

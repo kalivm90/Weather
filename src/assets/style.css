@@ -1,3 +1,316 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+:root {
+    --yellow: #ffc106;
+}
+
+/* all icons */
+.svg {
+    width: 80px;
+    height: auto;
+}
+
+body {
+    @apply grid;
+    grid-template-columns: 1fr .3fr;
+    grid-template-rows: min-content 2fr .2fr;
+
+    /* grid-template-areas: 
+        "nav nav"
+        "main side"
+        "foot foot"
+    ; */
+    grid-template-areas:
+        "nav nav"
+        "main main"
+        "foot foot"
+    ;
+}
+
+/* NAVBAR */
+nav {
+    grid-area: nav;
+    @apply bg-cyan-500 flex flex-row justify-between p-6 items-center;
+}
+
+.nav-flex {
+    @apply flex flex-row gap-5 items-center
+}
+
+nav h1 {
+    font-family: "Lobster";
+    letter-spacing: 2px;
+}
+
+#nav-toggle .bars {
+    @apply bg-[#ffc106] w-[50px] h-[5px] rounded-t-sm
+}
+
+;
+
+#nav-toggle:hover {
+    cursor: pointer;
+}
+
+.x:nth-of-type(1) {
+    transition: all 100ms ease-in-out;
+    transform: rotate(45deg);
+    transform-origin: top left;
+    width: 28px;
+}
+
+.x:nth-of-type(2) {
+    transition: all 10ms ease-in-out;
+    transform-origin: center;
+    /* width: 0; */
+    visibility: hidden;
+}
+
+.x:nth-of-type(3) {
+    transition: all 100ms ease-in-out;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    width: 28px;
+}
+
+.show-sidebar {
+    @apply bg-slate-100 grid;
+    grid-template-columns: 1fr .3fr;
+    grid-template-rows: min-content 2fr .2fr;
+    grid-template-areas:
+        "nav nav"
+        "main side"
+        "foot foot"
+    ;
+}
+
+
+.sidebar {
+    grid-area: side;
+    visibility: hidden;
+    display: none;
+}
+
+/* MAIN */
+.main {
+    grid-area: main;
+}
+
+.error-banner {
+    background-color: #ef4444;
+    height: 100px;
+    color: white;
+    font-size: 2em;
+    visibility: hidden;
+    display: none;
+    animation: fadeIn 10s;
+}
+
+.show-error {
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    30% {
+        opacity: .30;
+    }
+
+    50% {
+        opacity: .50;
+    }
+
+    60% {
+        opacity: .60;
+    }
+
+    70% {
+        opacity: .70;
+    }
+
+    75% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.weather {
+    /* background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url("./images/clear.webp"); */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url("./images/rain.jpg"); */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url("./images/thunderstorm.webp"); */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url("./images/snow.jpg"); */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url("./images/clouds.webp"); */
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 10px;
+    filter: brightness(90%);
+}
+
+.desc {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+
+/* CARD */
+/* parent container */
+.info {
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    height: 100%;
+    /* background-color: #06ff59; */
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    width: 100%;
+    flex: 1;
+    height: min-content;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+}
+
+.temp {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+}
+
+/* WIND LIST */
+.bottom {
+    width: 100%;
+    flex: 1;
+    /* background-color: #ffc106; */
+    height: min-content;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#bottom-list {
+    flex: 1;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* GIF */
+
+#gif {
+    width: 100%;
+    object-fit: cover;
+    background-size: 100%;
+}
+
+.bottom-desc {
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#weather-icon {
+    width: 100px;
+    height: auto;
+}
+
+.right {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* 
+.card-title {
+    @apply text-4xl text-white font-bold;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+.footer {
+    grid-area: foot;
+}
+#foot-desc {
+    cursor: pointer;
+}
+
+
+.bodyMobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content .2fr 1fr min-content;
+    grid-template-areas:
+        "nav nav"
+        "side side"
+        "main main"
+        "foot foot"
+    ;
+}
+
+@media only screen and (max-width: 980px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .hamburgerContainer {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 632px) {
+    #searchField {
+        width: 200px;
+        text-align: center;
+    }
+
+    #breakpointNav {
+        gap: 20px;
+    }
+}

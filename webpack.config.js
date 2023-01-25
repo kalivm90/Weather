@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -23,6 +24,7 @@ module.exports = {
       title: 'Tailwinds Template',
       template: "./src/template.html"
     }),
+    new Dotenv(),
   ],
   module: {
     rules: [
@@ -33,7 +35,7 @@ module.exports = {
       },
       // IMAGES
       {
-        test: /\.(svg|png|jpeg|jpg)$/,
+        test: /\.(svg|png|jpeg|jpg|webp)$/,
         type: 'asset/resource'
 
       },

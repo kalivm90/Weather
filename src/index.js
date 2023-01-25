@@ -1,4 +1,7 @@
 import './assets/style.css';
-import { hello } from './modules/test';
+import { displayController } from './modules/UI';
 
-console.log(hello());
+window.onload = displayController.renderPage();
+
+
+
